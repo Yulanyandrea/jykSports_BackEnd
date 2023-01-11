@@ -12,3 +12,4 @@ router.get('/:id',handleGetProduct);
 router.post('/',handleCreateProduct);
 router.patch('/:id',handleUpdateProduct);
 router.delete('/:id',handleDeleteProduct);
+export default router;

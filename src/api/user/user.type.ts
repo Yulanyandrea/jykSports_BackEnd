@@ -4,4 +4,5 @@ export type userProfileData={
   email:string;
   role: string;
   username:string;
+  profilePicture: string;
 }

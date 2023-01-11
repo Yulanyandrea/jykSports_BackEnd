@@ -20,7 +20,6 @@
   },
   "homepage": "https://github.com/Yulanyandrea/jykSports_BackEnd#readme",
   "devDependencies": {
-    "typescript": "^4.9.4",
     "@stripe/react-stripe-js": "^1.16.1",
     "@types/bcrypt": "^5.0.0",
     "@types/cors": "^2.8.13",
@@ -39,7 +38,8 @@
     "eslint-plugin-jsx-a11y": "^6.6.1",
     "eslint-plugin-n": "^15.6.0",
     "eslint-plugin-promise": "^6.1.1",
-    "ts-node-dev": "^2.0.0"
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^4.9.4"
   },
   "dependencies": {
     "@stripe/stripe-js": "^1.46.0",

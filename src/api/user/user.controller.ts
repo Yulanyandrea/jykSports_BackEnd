@@ -29,7 +29,7 @@ export async function handleGetUser(req:Request, res:Response, next:NextFunction
     if(!getUser){
       return res.status(404).json({message:"User not found"})
     }
-    return res.status(200).json(getUser.userProfile)
+    return res.status(200).json(getUser.profile)
   } catch (error) {
     return res.status(500).json(error)
   }
