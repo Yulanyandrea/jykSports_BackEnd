@@ -4,7 +4,7 @@ import { createProduct,getAllProducts,getProductById, updateProduct } from './pr
 export async function handleGetAllProduct(req:Request, res:Response, next:NextFunction) {
   try {
     const products= await getAllProducts();
-    return res.status(200)
+    return res.status(200).json(products)
   } catch (error) {
     console.log(error)
     return res.status(500).json(error)

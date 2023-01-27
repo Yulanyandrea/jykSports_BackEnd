@@ -36,14 +36,14 @@ const UserSchema= new Schema({
   },
   email:{
     type:String,
-    require:true
+    require:true,
+    unique:true,
   },
   userName:{
     type:String
   },
   role:{
     type:String,
-    require:true,
     enum:['USER','ADMIN'],
     default: 'USER',
   },
