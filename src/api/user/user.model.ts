@@ -21,6 +21,9 @@ export interface UserDocument extends Document {
 }
 
 const UserSchema= new Schema({
+  profilePicture:{
+    type:String
+  },
   firstName:{
     type:String,
     require:true,
@@ -29,26 +32,24 @@ const UserSchema= new Schema({
     type:String,
     require:true,
   },
-  password:{
-    type:String,
-    require:true,
-    min:6,
-  },
   email:{
     type:String,
     require:true,
     unique:true,
   },
   userName:{
-    type:String
+    type:String,
+    unique:true,
+  },
+  password:{
+    type:String,
+    require:true,
+    min:6,
   },
   role:{
     type:String,
     enum:['USER','ADMIN'],
     default: 'USER',
-  },
-  profilePicture:{
-    type:String
   },
   passwordResetToken: String,
   passwordResetExpires: Date,
@@ -61,15 +62,13 @@ const UserSchema= new Schema({
 
 // Virtuals
 UserSchema.virtual('profile').get(function profile() {
-  const { firstName, lastName, password,email, userName, role } = this;
+  const { email, userName, role, profilePicture } = this;
 
   return {
-    firstName,
-    lastName,
-    password,
     email,
     userName,
-    role
+    role,
+    profilePicture
   };
 
 });

@@ -1,6 +1,7 @@
 import { Schema, Document, model } from "mongoose";
 
 export interface ProductDocument extends Document{
+  image:string;
   reference:string;
   brand:string;
   color:string;
@@ -13,6 +14,9 @@ export interface ProductDocument extends Document{
 }
 
 const ProductSchema= new Schema({
+  image:{
+    type:String
+  },
   reference:{
     type:String,
     require:true,
