@@ -1,5 +1,10 @@
 import { Request,Response, NextFunction} from 'express';
-import { createProduct,getAllProducts,getProductById, updateProduct } from './product.services';
+import Product, { ProductDocument } from './product.model';
+import { createProduct,
+  getAllProducts,
+  getProductById,
+  updateProduct,
+  getProduct } from './product.services';
 
 export async function handleGetAllProduct(req:Request, res:Response, next:NextFunction) {
   try {
@@ -60,4 +65,29 @@ export async function handleDeleteProduct(req:Request, res:Response, next:NextFu
   } catch (error) {
     return res.status(500).json(error)
   }
+}
+
+export async function handleFilterProduct(req:Request, res:Response, next:NextFunction) {
+  const {brand, size, color} = req.query
+
+  let products
+
+  if(brand && size && color ){
+   products = await Product.find({ brand: brand, size:size, color:color});
+   }
+   else if(brand){
+    products = await Product.find({ brand: brand});
+   }
+  else if (size){
+      products = await Product.find({size: size});
+   }
+   else if(color){
+     products = await Product.find({ color: color });
+   }
+  //  else if(){
+  //    products = await Product.find({ brand: brand, size:size, color:color });
+  // }
+  console.log(products)
+  return res.status(200).json(products)
+
 }
