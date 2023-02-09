@@ -75,19 +75,30 @@ export async function handleFilterProduct(req:Request, res:Response, next:NextFu
   if(brand && size && color ){
    products = await Product.find({ brand: brand, size:size, color:color});
    }
+   else if(brand && size){
+    products = await Product.find({ brand: brand, size:size});
+   }
+   else if(brand && color){
+    products = await Product.find({ brand: brand, color:color});
+   }
+   else if(size && color){
+     products = await Product.find({ size:size, color: color });
+   }
    else if(brand){
-    products = await Product.find({ brand: brand});
-   }
-  else if (size){
-      products = await Product.find({size: size});
-   }
-   else if(color){
-     products = await Product.find({ color: color });
-   }
-  //  else if(){
-  //    products = await Product.find({ brand: brand, size:size, color:color });
-  // }
-  console.log(products)
+    products = await Product.find({ brand:brand });
+  }
+  else if(size ){
+    products = await Product.find({ size:size });
+  }
+  else if(color){
+    products = await Product.find({ color: color });
+  }else if(!brand && !size && !color ){
+    products = await Product.find({  });
+
+  }
+
+
+
   return res.status(200).json(products)
 
 }

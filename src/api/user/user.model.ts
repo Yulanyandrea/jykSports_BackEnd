@@ -68,7 +68,7 @@ UserSchema.virtual('profile').get(function profile() {
     email,
     userName,
     role,
-    profilePicture
+    profilePicture,
   };
 
 });

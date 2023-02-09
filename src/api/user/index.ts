@@ -6,6 +6,7 @@ handleGetUser,
 handleUpdateUser
 } from './user.controller';
 
+
 const router= Router()
 
 router.get('/',handleGetAllUsers);

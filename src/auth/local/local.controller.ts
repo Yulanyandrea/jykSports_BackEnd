@@ -16,7 +16,7 @@ export  async function handleLoginUser(req:Request,res:Response,next:NextFunctio
     const payload=userLogIn.profile
     //token
     const token= signToken(payload);
-    return res.status(200).json({profile:userLogIn.profile,token })
+    return res.status(200).json({profile:userLogIn,token })
   } catch (error:any) {
     return res.status(500).json(error.message)
   }
