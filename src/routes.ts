@@ -9,7 +9,7 @@ function routes(app:Application) {
   app.use('/api/users', user);
   app.use('/api/products',product);
   app.use('/api/upload', upload);
-  app.use('api/employee', employee)
+  app.use('/api/employee', employee)
 
   // authentication routes
   app.use('/auth/local',LocalAuth)
