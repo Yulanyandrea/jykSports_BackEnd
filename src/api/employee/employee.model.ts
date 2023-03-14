@@ -85,12 +85,12 @@ EmployeeSchema.pre<EmployeeDocument>(
 
     let payment = 0;
     if (
-      this.dateRate.workMonday &&
-      this.dateRate.workTuesday &&
-      this.dateRate.workWednesday &&
-      this.dateRate.workThursday &&
-      this.dateRate.workFriday &&
-      this.dateRate.workSaturday &&
+      this.dateRate.workMonday ||
+      this.dateRate.workTuesday ||
+      this.dateRate.workWednesday ||
+      this.dateRate.workThursday ||
+      this.dateRate.workFriday ||
+      this.dateRate.workSaturday ||
       this.dateRate.workSunday
     ) {
       payment +=
