@@ -36,14 +36,7 @@ const EmployeeSchema = new Schema(
       type: String,
       require: true,
     },
-    startDate: {
-      type: Date,
-      require: true,
-    },
-    endDate: {
-      type: Date,
-      require: true,
-    },
+
     dateRate: {
       workMonday: {
         type: Number,
@@ -80,8 +73,7 @@ const EmployeeSchema = new Schema(
 EmployeeSchema.pre<EmployeeDocument>(
   "save",
   async function save(next: Function) {
-    const startDate = new Date(this.startDate);
-    const endDate = new Date(this.endDate);
+
 
     let payment = 0;
     if (
