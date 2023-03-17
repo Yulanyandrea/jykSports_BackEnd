@@ -94,7 +94,7 @@ EmployeeSchema.pre<EmployeeDocument>(
         this.dateRate.workSaturday +
         this.dateRate.workSunday;
     }
-    this.pay = payment;
+    this.pay = payment*4;
     next();
   }
 );
